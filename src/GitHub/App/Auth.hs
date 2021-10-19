@@ -127,7 +127,7 @@ createAccessTokenR InstallationAuth{..} = do
         }
   where
     toJsonTime = fromMaybe (error "impossible") . numericDate
-    url = baseUrl <> "/installations/" <> iaInstallationId <> "/access_tokens"
+    url = baseUrl <> "/app/installations/" <> iaInstallationId <> "/access_tokens"
 
 -- | Get a valid access token
 --
