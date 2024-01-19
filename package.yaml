@@ -45,7 +45,7 @@ library:
     - http-client
     - http-client-tls
     - http-types
-    - jwt >= 0.8.0
+    - jwt >= 0.11.0
     - mtl
     - safe-exceptions
     - tagged

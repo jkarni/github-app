@@ -42,7 +42,7 @@ import GitHub.Request (StatusMap, parseResponseJSON)
 import Network.HTTP.Client as HTTP
 import qualified Network.HTTP.Client.Internal as HTTP
 import qualified Network.HTTP.Types as HTTP
-import Web.JWT (JWTClaimsSet (exp, iat, iss), Signer (RSAPrivateKey), encodeSigned, numericDate,
+import Web.JWT (JWTClaimsSet (exp, iat, iss), EncodeSigner (EncodeRSAPrivateKey), encodeSigned, numericDate,
                 stringOrURI)
 
 
@@ -113,7 +113,7 @@ createAccessTokenR InstallationAuth{..} = do
             { iat = Just $ toJsonTime currentTime
             , exp = Just $ toJsonTime expiryTime
             }
-        jwt = encodeSigned (RSAPrivateKey iaAppPrivateKey) mempty claims
+        jwt = encodeSigned (EncodeRSAPrivateKey iaAppPrivateKey) mempty claims
 
     req <- HTTP.parseRequest . T.unpack $ url
     pure req
