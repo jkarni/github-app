@@ -9,6 +9,7 @@
 module GitHub.App.Auth
        ( AppAuth (..)
 
+       , iaInstallationId
        , InstallationAuth
        , mkInstallationAuth
 
